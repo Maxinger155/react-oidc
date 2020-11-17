@@ -15,26 +15,29 @@ npm install @3rdparty/react-oidc-context --save
 
 The library is router agnostic and use native History API.
 
-The default routes used 3rdpartyly :
+The default routes used internaly :
 
-- www.your-app.fr/authentication/callback
-- www.your-app.fr/authentication/silent_callback
-- www.your-app.fr/authentication/not-authenticated
-- www.your-app.fr/authentication/not-authorized
+- www.your-app.de/authentication/callback
+- www.your-app.de/authentication/silent_callback
+- www.your-app.de/authentication/not-authenticated
+- www.your-app.de/authentication/not-authorized
 
 ```javascript
-import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthenticationProvider, oidcLog } from '@3rdparty/react-oidc-context';
-import Header from './Layout/Header';
-import Routes from './Router';
-import oidcConfiguration from './configuration';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthenticationProvider, oidcLog } from "@3rdparty/react-oidc-context";
+import Header from "./Layout/Header";
+import Routes from "./Router";
+import oidcConfiguration from "./configuration";
 
 const App = () => (
   <div>
     <Router>
-      <AuthenticationProvider configuration={oidcConfiguration} loggerLevel={oidcLog.DEBUG}>
+      <AuthenticationProvider
+        configuration={oidcConfiguration}
+        loggerLevel={oidcLog.DEBUG}
+      >
         <Header />
         <Routes />
       </AuthenticationProvider>
@@ -42,7 +45,7 @@ const App = () => (
   </div>
 );
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
 ```
 
 `AuthenticationProvider` accept the following properties :
@@ -55,8 +58,12 @@ const propTypes = {
   callbackComponentOverride: PropTypes.elementType, // react component displayed when user is connected
   sessionLostComponent: PropTypes.elementType, // react component displayed when user loose authentication session
   configuration: PropTypes.shape({
-    client_id: PropTypes.string.isRequired, // oidc client configuration, the same as oidc client library used 3rdpartyly https://github.com/IdentityModel/oidc-client-js
+    client_id: PropTypes.string.isRequired, // oidc client configuration, the same as oidc client library used internaly https://github.com/IdentityModel/oidc-client-js
     redirect_uri: PropTypes.string.isRequired,
+    popup_redirect_uri : PropTypes.string // set this ONLY when you want to use a Popup to login. Set it to the same value as in redirect_uri
+    popupWindowFeatures : PropTypes.string // set the WindowFeatures for the popup https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Window_features
+    popup_width : PropTypes.integer // width of the popup
+    popup_height : PropTypes.integer // height of the popup
     response_type: PropTypes.string.isRequired,
     scope: PropTypes.string.isRequired,
     authority: PropTypes.string.isRequired,
@@ -96,19 +103,36 @@ Through the UserStore you can specify a class that can be used to store the user
   key(index: number): any;
   length?: number;
 ```
+
 It could also be window.localStorage or window.sessionStorage. By default, without any userStore, the sessionStorage will be used.
 
 See below a sample of configuration, you can have more information about on [oidc client github](https://github.com/IdentityModel/oidc-client-js)
 
 ```javascript
 const configuration = {
-  client_id: 'implicit',
-  redirect_uri: 'http://localhost:3000/authentication/callback',
-  response_type: 'id_token token',
-  post_logout_redirect_uri: 'http://localhost:3000/',
-  scope: 'openid profile email',
-  authority: 'https://demo.identityserver.io',
-  silent_redirect_uri: 'http://localhost:3000/authentication/silent_callback',
+  client_id: "implicit",
+  redirect_uri: "http://localhost:3000/authentication/callback",
+  response_type: "id_token token",
+  post_logout_redirect_uri: "http://localhost:3000/",
+  scope: "openid profile email",
+  authority: "https://demo.identityserver.io",
+  silent_redirect_uri: "http://localhost:3000/authentication/silent_callback",
+  automaticSilentRenew: true,
+  loadUserInfo: true,
+};
+
+const configurationPopups = {
+  popup_width: 600,
+  popup_height: 600,
+  client_id: "portal",
+  redirect_uri: "http://localhost:3080/authentication/callback",
+  popup_redirect_uri: "http://localhost:3080/authentication/callback",
+  popupWindowFeatures: "location=no,toolbar=no,width= 600,height= 600",
+  response_type: "code",
+  post_logout_redirect_uri: "http://localhost:3080/",
+  scope: "profile email openid",
+  authority: "https://dev0010-204/auth/realms/sdn_portal/.well-known/openid-configuration",
+  silent_redirect_uri: "http://localhost:3080/authentication/silent_callback",
   automaticSilentRenew: true,
   loadUserInfo: true,
 };
@@ -121,23 +145,23 @@ export default configuration;
 oidc-client needs some polyfills to works on Internet Explorer. You can use [core-js](https://github.com/zloirock/core-js) to help you. See [Context Sample](../../examples/context). In the sample we use some polyfills
 
 ```javascript
-import 'core-js/es/array/from';
-import 'core-js/es/array/find';
-import 'core-js/es/array/includes';
-import 'core-js/es/array/find-index';
-import 'core-js/es/array/map';
+import "core-js/es/array/from";
+import "core-js/es/array/find";
+import "core-js/es/array/includes";
+import "core-js/es/array/find-index";
+import "core-js/es/array/map";
 
-import 'core-js/es/object/assign';
+import "core-js/es/object/assign";
 
-import 'core-js/es/promise';
-import 'core-js/es/map';
+import "core-js/es/promise";
+import "core-js/es/map";
 
-import 'core-js/es/string/repeat';
-import 'core-js/es/string/pad-start';
-import 'core-js/es/string/pad-end';
-import 'core-js/es/string/starts-with';
+import "core-js/es/string/repeat";
+import "core-js/es/string/pad-start";
+import "core-js/es/string/pad-end";
+import "core-js/es/string/starts-with";
 
-import 'whatwg-fetch';
+import "whatwg-fetch";
 ```
 
 ### How to consume : Hooks method (Pages/Dashboard/Dashboard.js)
@@ -145,8 +169,8 @@ import 'whatwg-fetch';
 "useReactOidc" returns all props from the Hook :
 
 ```javascript
-import React from 'react';
-import { useReactOidc } from '@3rdparty/react-oidc-context';
+import React from "react";
+import { useReactOidc } from "@3rdparty/react-oidc-context";
 
 const Dashboard = () => {
   const { oidcUser } = useReactOidc();
@@ -175,26 +199,26 @@ export default Dashboard;
 - events: returns events from oidc-client (see [oidc client section about events](https://github.com/IdentityModel/oidc-client-js/wiki#events))
 
 ```javascript
-import React from 'react';
-import { AuthenticationContext } from '@3rdparty/react-oidc-context';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { AuthenticationContext } from "@3rdparty/react-oidc-context";
+import { Link } from "react-router-dom";
 
 const headerStyle = {
-  display: 'flex',
-  backgroundColor: '#26c6da',
-  justifyContent: 'space-between',
+  display: "flex",
+  backgroundColor: "#26c6da",
+  justifyContent: "space-between",
   padding: 10,
 };
 
 const linkStyle = {
-  color: 'white',
-  textDecoration: 'underline',
+  color: "white",
+  textDecoration: "underline",
 };
 
 export default () => (
   <header>
     <AuthenticationContext.Consumer>
-      {props => {
+      {(props) => {
         return (
           <div style={headerStyle}>
             <h3>
@@ -219,6 +243,7 @@ export default () => (
               </ul>
             ) : (
               <button onClick={props.login}>login</button>
+              <button onClick={props.loginPopup}>login via popup (popup_redirect_uri has to be set)</button>
             )}
           </div>
         );
@@ -234,8 +259,8 @@ export default () => (
 "OidcSecure" component trigger authentication in case user is not authenticated. So, the children of that component can be accessible only once you are connected.
 
 ```javascript
-import React from 'react';
-import { withOidcUser, OidcSecure } from '@3rdparty/react-oidc-context';
+import React from "react";
+import { withOidcUser, OidcSecure } from "@3rdparty/react-oidc-context";
 
 const Admin = ({ oidcUser }) => (
   <OidcSecure>
@@ -254,12 +279,12 @@ export default withOidcUser(Admin);
 "withOidcSecure" act the same as "OidcSecure" it also trigger authentication in case user is not authenticated.
 
 ```javascript
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { withOidcSecure } from '@3rdparty/react-oidc-context';
-import Home from '../Pages/Home';
-import Dashboard from '../Pages/Dashboard';
-import Admin from '../Pages/Admin';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import { withOidcSecure } from "@3rdparty/react-oidc-context";
+import Home from "../Pages/Home";
+import Dashboard from "../Pages/Dashboard";
+import Admin from "../Pages/Admin";
 
 const Routes = () => (
   <Switch>
