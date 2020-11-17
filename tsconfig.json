@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "target": "es5",
+    "lib": ["es2016", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@3rdparty/react-oidc-context": ["packages/context/dist"],
+      "@3rdparty/react-oidc-core": ["packages/core/dist"],
+      "@3rdparty/react-oidc-fetch-core": ["packages/fetch-core/dist"]
+    }
+  }
+}

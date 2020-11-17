@@ -1,0 +1,1 @@
+{"version":3,"file":"AuthenticationCallback.d.ts","sourceRoot":"","sources":["../src/AuthenticationCallback.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAE/B,OAAO,EAAE,IAAI,EAAe,MAAM,aAAa,CAAC;AAEhD,OAAO,EAAuC,gBAAgB,EAAE,MAAM,2BAA2B,CAAC;AAelG,eAAO,MAAM,OAAO;iBAAoC,MAAM,KAAK,IAAI;gBAC5D,gBAAgB,YACf,IAAI,GAAG,IAAI,SAMtB,CAAC;;AAgDF,wBAAqD"}

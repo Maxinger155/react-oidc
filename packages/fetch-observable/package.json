@@ -1,0 +1,20 @@
+{
+  "name": "@3rdparty/react-oidc-fetch-observable",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxinger15/react-oidc.git"
+  },
+  "peerDependencies": {
+    "recompose": "~0.30.0",
+    "rxjs": "^6.3.3"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://denexus.de-gmbh.com/repository/NpmUploaded/"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@3rdparty/react-oidc-core",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Grallinger, Max <max.grallinger@de-gmbh.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://denexus.de-gmbh.com/repository/NpmPublic/"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

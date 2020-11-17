@@ -1,0 +1,104 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install
+
+PATH: 
+  C:\Programme\Python26\Scripts;C:\Programme\Python26\;C:\ProgrammeDE\Oracle\product\12.1.0\client_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\PROGRA~2\ATT\Graphviz\bin;C:\Program Files\nodejs\;C:\ProgrammeDE\Java\tools\bin;C:\ProgrammeDE\Java\tools\maven-1.0.2\bin;C:\ProgrammeDE\Java\apache-ant-1.9.6\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\gra\AppData\Roaming\Python\Scripts;C:\Users\gra\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\CVSNT\;C:\PROGRA~2\CVSNT;C:\Users\gra\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\gra\AppData\Roaming\npm;C:\Users\gra\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  12.18.4
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: http://denexus.de-gmbh.com/repository/NpmPublic/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.5.tgz: Request failed "401 Unauthorized"
+      at ResponseError.ExtendableBuiltin (C:\Program Files (x86)\Yarn\lib\cli.js:696:66)
+      at new ResponseError (C:\Program Files (x86)\Yarn\lib\cli.js:802:124)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:66167:16)
+      at Request.emit (events.js:315:20)
+      at Request.module.exports.Request.onRequestResponse (C:\Program Files (x86)\Yarn\lib\cli.js:141626:10)
+      at ClientRequest.emit (events.js:315:20)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:596:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:119:17)
+      at HTTPParser.execute (<anonymous>)
+      at Socket.socketOnData (_http_client.js:469:22)
+
+npm manifest: 
+  {
+    "name": "@3rdparty/react-oidc",
+    "scripts": {
+      "bootstrap": "lerna bootstrap",
+      "publish": "lerna publish",
+      "clean": "lerna clean",
+      "example:redux": "npm -C ./examples/redux run start",
+      "example:context": "npm -C ./examples/context run start",
+      "example:vanilla": "npm -C ./examples/vanilla run start"
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.7.4",
+      "@babel/core": "^7.7.4",
+      "@babel/plugin-proposal-class-properties": "^7.7.4",
+      "@babel/plugin-proposal-export-default-from": "^7.7.4",
+      "@babel/plugin-proposal-export-namespace-from": "^7.7.4",
+      "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+      "@babel/plugin-syntax-import-meta": "^7.7.4",
+      "@babel/plugin-transform-runtime": "^7.7.4",
+      "@babel/preset-env": "^7.7.4",
+      "@babel/preset-react": "^7.7.4",
+      "@babel/preset-typescript": "^7.8.3",
+      "@testing-library/jest-dom": "^4.2.4",
+      "@testing-library/react": "^9.5.0",
+      "@testing-library/react-hooks": "^1.1.0",
+      "@types/jest": "^25.1.0",
+      "@types/react": "^16.9.23",
+      "@types/react-redux": "^7.1.7",
+      "@types/recompose": "^0.30.7",
+      "@typescript-eslint/eslint-plugin": "^2.27.0",
+      "@typescript-eslint/parser": "^2.27.0",
+      "auto-changelog": "^1.13.0",
+      "babel-eslint": "^10.0.3",
+      "babel-jest": "^25.1.0",
+      "chalk": "^2.4.2",
+      "codacy-coverage": "^3.4.0",
+      "commander": "^2.20.0",
+      "concurrently": "^5.1.0",
+      "cross-env": "^6.0.0",
+      "fs-extra": "^8.0.1",
+      "inquirer": "^7.0.1",
+      "jest": "25.1.0",
+      "lerna": "^3.22.1",
+      "npmlog": "^4.1.2",
+      "oidc-client": "^1.10.1",
+      "prettier": "^1.18.2",
+      "raf": "^3.4.1",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1",
+      "react-redux": "^7.2.0",
+      "recompose": "^0.30.0",
+      "redux": "^4.0.5",
+      "redux-oidc": "^3.1.7",
+      "shelljs": "^0.8.3",
+      "twit": "^2.2.11",
+      "typescript": "^3.8.3"
+    },
+    "engines": {
+      "node": ">=8.0.0",
+      "yarn": ">=1.3.2"
+    },
+    "private": true,
+    "dependencies": {
+      "enzyme-adapter-react-16": "^1.14.0",
+      "tslint": "^5.20.1",
+      "tslint-config-prettier": "^1.18.0",
+      "tslint-plugin-prettier": "^2.3.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

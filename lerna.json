@@ -1,0 +1,22 @@
+{
+  "command": {
+    "publish": {
+      "message": "chore(release): publish %s ***NO_CI***",
+      "npmClient": "npm",
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md",
+        ".npmrc"
+      ]
+    },
+    "bootstrap": {
+      "ignore": "component-*",
+      "npmClientArgs": []
+    }
+  },
+  "packages": [
+    "examples/**/*",
+    "packages/*"
+  ],
+  "version": "1.0.0"
+}

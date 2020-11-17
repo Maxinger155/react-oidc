@@ -1,0 +1,40 @@
+{
+  "name": "@3rdparty/react-oidc-redux-fetch",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
+  "description": "Inject authentification behavior to fetch using react High Order Component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxinger15/react-oidc.git"
+  },
+  "keywords": [
+    "oidc",
+    "redux",
+    "OpenID Connect",
+    "openid",
+    "oauth2",
+    "react-component"
+  ],
+  "scripts": {
+    "prepare": "node ../../scripts/prepare.js"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6",
+    "react-redux": "^5.0.7",
+    "react-router": ">=5.0.1",
+    "react-router-dom": ">=5.0.1",
+    "recompose": "^0.30.0"
+  },
+  "dependencies": {
+    "@3rdparty/react-oidc-fetch-core": "^1.0.0",
+    "@3rdparty/react-oidc-redux": "^1.0.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://denexus.de-gmbh.com/repository/NpmUploaded/"
+  }
+}

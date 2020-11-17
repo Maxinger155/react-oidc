@@ -1,0 +1,32 @@
+import { ComponentType, PropsWithChildren } from 'react';
+import { Logger, UserManagerSettings } from 'oidc-client';
+import { authenticationService, setLogger, OidcRoutes, ReactOidcHistory, UserStoreType, oidcLog, authenticateUser, authenticateUserSilent, logoutUser } from '@3rdparty/react-oidc-core';
+import { Callback } from '../Callback';
+declare type AuthenticationProviderIntProps = PropsWithChildren<{
+    location: Location;
+    history: ReactOidcHistory;
+    loggerLevel: number;
+    logger: Logger;
+    notAuthenticated: ComponentType;
+    notAuthorized: ComponentType;
+    authenticating: ComponentType;
+    callbackComponentOverride: ComponentType;
+    sessionLostComponent: ComponentType;
+    UserStore: UserStoreType;
+    isEnabled?: boolean;
+    configuration: UserManagerSettings;
+    authenticationServiceInt: typeof authenticationService;
+    CallbackInt: typeof Callback;
+    setLoggerInt: typeof setLogger;
+    OidcRoutesInt: typeof OidcRoutes;
+    oidcLogInt: typeof oidcLog;
+    authenticateUserInt: typeof authenticateUser;
+    authenticateUserSilentInt: typeof authenticateUserSilent;
+    logoutUserInt: typeof logoutUser;
+}>;
+export declare const withComponentOverrideProps: (Component: ComponentType, customCallback: ComponentType) => (props: PropsWithChildren<any>) => JSX.Element;
+export declare const AuthenticationProviderInt: ({ location, history, configuration, isEnabled, UserStore, loggerLevel, logger, sessionLostComponent, authenticating, notAuthenticated, notAuthorized, callbackComponentOverride, children, authenticationServiceInt, CallbackInt, setLoggerInt, OidcRoutesInt, oidcLogInt, authenticateUserInt, logoutUserInt, }: AuthenticationProviderIntProps) => JSX.Element;
+declare type AuthenticationProviderProps = Omit<AuthenticationProviderIntProps, 'authenticationServiceInt' | 'CallbackInt' | 'setLoggerInt' | 'OidcRoutesInt' | 'oidcLogInt' | 'authenticateUserInt' | 'logoutUserInt'>;
+declare const AuthenticationProvider: ComponentType<Partial<AuthenticationProviderProps>>;
+export default AuthenticationProvider;
+//# sourceMappingURL=AuthenticationContext.provider.d.ts.map
