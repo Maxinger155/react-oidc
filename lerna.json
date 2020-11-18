@@ -2,7 +2,7 @@
   "command": {
     "publish": {
       "message": "chore(release): publish %s ***NO_CI***",
-      "npmClient": "npm",
+      "npmClient": "yarn",
       "ignoreChanges": [
         "ignored-file",
         "*.md",
