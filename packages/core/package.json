@@ -2,15 +2,15 @@
   "name": "@3rdparty/react-oidc-core",
   "version": "1.0.0",
   "description": "A core package for Axa React Oidc packages",
-  "homepage": "https://github.com/Maxinger15/react-oidc#readme",
+  "homepage": "https://github.com/Maxinger155/react-oidc#readme",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Maxinger15/react-oidc.git"
+    "url": "git+https://github.com/Maxinger155/react-oidc.git"
   },
   "bugs": {
-    "url": "https://github.com/Maxinger15/react-oidc/issues"
+    "url": "https://github.com/Maxinger155/react-oidc/issues"
   },
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"

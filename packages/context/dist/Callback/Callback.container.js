@@ -64,7 +64,7 @@ var react_oidc_core_1 = require("@3rdparty/react-oidc-core");
 var withServices_1 = __importDefault(require("../withServices"));
 exports.onRedirectSuccess = function (history, oidcLogInternal) { return function (user) {
     oidcLogInternal.info('Successfull login Callback', user);
-    if (user != undefined && user.state.url) {
+    if (user != undefined && user.state != undefined && user.state.url) {
         history.push(user.state.url);
     }
     else {

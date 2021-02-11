@@ -219,7 +219,7 @@ export default App;
 
 ### Example
 
-You can also test a demo application by uploading it to [this link](https://download-directory.github.io/?url=https://github.com/Maxinger15/react-oidc/tree/master/examples/redux) or cloning [the repository](https://github.com/Maxinger15/react-oidc.git) (examples / redux directory).
+You can also test a demo application by uploading it to [this link](https://download-directory.github.io/?url=https://github.com/Maxinger155/react-oidc/tree/master/examples/redux) or cloning [the repository](https://github.com/Maxinger155/react-oidc.git) (examples / redux directory).
 Then you just need to run a
 
 ```shell
