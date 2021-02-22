@@ -12,15 +12,17 @@ import {
   UserStoreType,
   oidcLog,
   authenticateUser,
+  authenticateUserSilent,
+  authenticateUserPopup,
   logoutUser,
-  setUserManager,
-} from '@axa-fr/react-oidc-core';
+  getUserManager
+} from '@3rdparty/react-oidc-core';
 
 import { Callback } from '../Callback';
 
 import withServices from '../withServices';
 import { AuthenticationContext } from './AuthenticationContext';
-import { useAuthenticationContextState, useOidcEvents, CustomEvents } from './AuthenticationContext.hooks';
+import { useAuthenticationContextState, useOidcEvents } from './AuthenticationContext.hooks';
 
 type AuthenticationProviderIntProps = PropsWithChildren<{
   location: Location;
@@ -41,9 +43,8 @@ type AuthenticationProviderIntProps = PropsWithChildren<{
   OidcRoutesInt: typeof OidcRoutes;
   oidcLogInt: typeof oidcLog;
   authenticateUserInt: typeof authenticateUser;
+  authenticateUserSilentInt: typeof authenticateUserSilent;
   logoutUserInt: typeof logoutUser;
-  customEvents: CustomEvents;
-  setUserManagerInt: typeof setUserManager;
 }>;
 
 const propTypes = {
@@ -62,15 +63,6 @@ const propTypes = {
     debug: PropTypes.func.isRequired,
   }),
   UserStore: PropTypes.func,
-  customEvents: PropTypes.shape({
-    onUserLoaded: PropTypes.func,
-    onUserUnloaded: PropTypes.func,
-    onSilentRenewError: PropTypes.func,
-    onUserSignedOut: PropTypes.func,
-    onUserSessionChanged: PropTypes.func,
-    onAccessTokenExpiring: PropTypes.func,
-    onAccessTokenExpired: PropTypes.func,
-  }),
 };
 
 const defaultProps: Partial<AuthenticationProviderIntProps> = {
@@ -83,7 +75,6 @@ const defaultProps: Partial<AuthenticationProviderIntProps> = {
   loggerLevel: 0,
   logger: console,
   configuration: configurationDefaultProps,
-  customEvents: null,
 };
 
 export const withComponentOverrideProps = (Component: ComponentType, customCallback: ComponentType) => (props: PropsWithChildren<any>) => (
@@ -104,7 +95,6 @@ export const AuthenticationProviderInt = ({
   notAuthorized,
   callbackComponentOverride,
   children,
-  customEvents,
   // Injected
   authenticationServiceInt,
   CallbackInt,
@@ -113,12 +103,11 @@ export const AuthenticationProviderInt = ({
   oidcLogInt,
   authenticateUserInt,
   logoutUserInt,
-  setUserManagerInt,
 }: AuthenticationProviderIntProps) => {
   const userManager = authenticationServiceInt(configuration, UserStore);
   const { oidcState, loadUser, onError, onLoading, unloadUser, onLogout } = useAuthenticationContextState(userManager);
   const oidcFunctions = { loadUser, onError, onLoading, unloadUser, onLogout };
-  const { addOidcEvents, removeOidcEvents } = useOidcEvents(oidcLogInt, userManager, oidcFunctions, customEvents);
+  const { addOidcEvents, removeOidcEvents } = useOidcEvents(oidcLogInt, userManager, oidcFunctions);
 
   useEffect(() => {
     onLoading();
@@ -133,9 +122,8 @@ export const AuthenticationProviderInt = ({
     return () => {
       removeOidcEvents();
       mount = false;
-      setUserManagerInt(null);
     };
-  }, [addOidcEvents, loadUser, logger, loggerLevel, onLoading, removeOidcEvents, setLoggerInt, setUserManagerInt, userManager]);
+  }, [addOidcEvents, loadUser, logger, loggerLevel, onLoading, removeOidcEvents, setLoggerInt, userManager]);
 
   const CallbackComponent = React.useMemo(
     () => (callbackComponentOverride ? withComponentOverrideProps(CallbackInt, callbackComponentOverride) : CallbackInt),
@@ -147,6 +135,18 @@ export const AuthenticationProviderInt = ({
     oidcLogInt.info('Login requested');
     await authenticateUserInt(userManager, location, history)();
   }, [authenticateUserInt, history, location, oidcLogInt, onLoading, userManager]);
+
+  const loginPopupCallback = useCallback(async () => {
+    onLoading();
+    oidcLogInt.info('Login requested');
+    await authenticateUserPopup(userManager, location, history)();
+  }, [authenticateUserPopup, history, location, oidcLogInt, onLoading, userManager]);
+
+  const loginSilentCallback = useCallback(async () => {
+    onLoading();
+    oidcLogInt.info('Silent Login requested');
+    await authenticateUserSilent(userManager, location, history)();
+  }, [authenticateUserSilent, history, location, oidcLogInt, onLoading, userManager]);
 
   const logoutCallback = useCallback(async () => {
     try {
@@ -164,6 +164,8 @@ export const AuthenticationProviderInt = ({
         authenticating,
         isEnabled,
         login: loginCallback,
+        loginSilent: loginSilentCallback,
+        loginPopup: loginPopupCallback,
         logout: logoutCallback,
         events: oidcState.userManager.events,
       }}
@@ -181,10 +183,15 @@ export const AuthenticationProviderInt = ({
   );
 };
 
-type AuthenticationProviderProps = Omit<
-  AuthenticationProviderIntProps,
-  'authenticationServiceInt' | 'CallbackInt' | 'setLoggerInt' | 'OidcRoutesInt' | 'oidcLogInt' | 'authenticateUserInt' | 'logoutUserInt'
->;
+type AuthenticationProviderProps = Omit<AuthenticationProviderIntProps,
+  | 'authenticationServiceInt'
+  | 'CallbackInt'
+  | 'setLoggerInt'
+  | 'OidcRoutesInt'
+  | 'oidcLogInt'
+  | 'authenticateUserInt'
+  | 'logoutUserInt'
+>
 
 const AuthenticationProvider: ComponentType<Partial<AuthenticationProviderProps>> = withRouter(
   withServices(AuthenticationProviderInt, {
@@ -195,7 +202,6 @@ const AuthenticationProvider: ComponentType<Partial<AuthenticationProviderProps>
     oidcLogInt: oidcLog,
     authenticateUserInt: authenticateUser,
     logoutUserInt: logoutUser,
-    setUserManagerInt: setUserManager,
   })
 );
 // @ts-ignore

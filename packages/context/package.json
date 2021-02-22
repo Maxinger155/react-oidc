@@ -1,13 +1,16 @@
 {
-  "name": "@axa-fr/react-oidc-context",
-  "version": "3.1.6",
+  "name": "@3rdparty/react-oidc-context",
+  "version": "4.0.0",
   "private": false,
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "description": "OpenID Connect & OAuth authentication using react context api as state management",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AxaGuilDEv/react-oidc.git"
+    "url": "https://github.com/Maxinger155/react-oidc.git"
+  },
+  "scripts": {
+    "prepare": "node ../../scripts/prepare.js"
   },
   "keywords": [
     "oidc",
@@ -17,21 +20,18 @@
     "oauth2",
     "react-component"
   ],
-  "scripts": {
-    "prepare": "node ../../scripts/prepare.js"
-  },
   "peerDependencies": {
     "oidc-client": ">=1.8.2",
+    "prop-types": ">=15.7.2",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6"
   },
   "dependencies": {
-    "@axa-fr/react-oidc-core": "^3.1.6",
-    "prop-types": "^15.7.2"
+    "@3rdparty/react-oidc-core": "^4.0.0"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://denexus.de-gmbh.com/repository/NpmUploaded/"
   }
 }

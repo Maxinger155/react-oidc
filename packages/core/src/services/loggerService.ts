@@ -1,6 +1,6 @@
 import { Log, Logger } from 'oidc-client';
 
-let oidcLogLevel: number = Log.WARN;
+let oidcLogLevel: number = Log.DEBUG;
 
 export type ReactOidcLogger = Logger;
 

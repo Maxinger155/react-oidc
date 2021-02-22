@@ -1,3 +1,3 @@
 # Sample Application
 
-This is a @axa-fr/react-oidc-redux sample application
+This is a @3rdparty/react-oidc-redux sample application

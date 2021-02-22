@@ -1,4 +1,4 @@
-# @axa-fr/react-oidc-context-fetch
+# @3rdparty/react-oidc-context-fetch
 
 ## About
 
@@ -16,12 +16,12 @@ This component allows by composition to improve "fetch" of new behavior. The "fe
 ## Getting Started
 
 ```sh
-npm install @axa-fr/react-oidc-context-fetch --save
+npm install @3rdparty/react-oidc-context-fetch --save
 ```
 
 ```javascript
 import { compose, lifecycle } from 'recompose';
-import { withAuthentication } from '@axa-fr/react-oidc-context-fetch';
+import { withAuthentication } from '@3rdparty/react-oidc-context-fetch';
 
 const enhance = compose(
   withAuthentication,

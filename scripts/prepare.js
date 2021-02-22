@@ -35,9 +35,9 @@ const packageJson = getPackageJson();
 const tsFiles = shell.find('src').filter(tsFile => tsFile.match(/\.ts$/));
 
 if (tsFiles.length !== 0) {
-  tscfy({ errorCallback: () => logError('ts', packageJson) });
+  tscfy({ errorCallback: () => logError('ts', packageJson), silent:false });
 } else {
-  babelify({ errorCallback: () => logError('js', packageJson) });
+  babelify({ errorCallback: () => logError('js', packageJson), silent:false });
 }
 copyLicence();
 

@@ -1,13 +1,8 @@
-# @axa-fr/react-oidc
+# Modified Version of https://github.com/AxaGuilDEv/react-oidc 
+# with a popup login function in the context-package
 
-[![Build status](https://dev.azure.com/axaguildev/react-oidc/_apis/build/status/AxaGuilDEv.react-oidc?branch=master)](https://dev.azure.com/axaguildev/react-oidc/_build)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=AxaGuilDEv_react-oidc&metric=alert_status)](https://sonarcloud.io/dashboard?id=AxaGuilDEv_react-oidc) [![Reliability](https://sonarcloud.io/api/project_badges/measure?project=AxaGuilDEv_react-oidc&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=AxaGuilDEv_react-oidc&metric=reliability_rating) [![Security](https://sonarcloud.io/api/project_badges/measure?project=AxaGuilDEv_react-oidc&metric=security_rating)](https://sonarcloud.io/component_measures?id=AxaGuilDEv_react-oidc&metric=security_rating) [![Code Corevage](https://sonarcloud.io/api/project_badges/measure?project=AxaGuilDEv_react-oidc&metric=coverage)](https://sonarcloud.io/component_measures?id=AxaGuilDEv_react-oidc&metric=Coverage) [![Twitter](https://img.shields.io/twitter/follow/GuildDEvOpen?style=social)](https://twitter.com/intent/follow?screen_name=GuildDEvOpen)
 
-<p align="center">
-    <img src="./docs/img/introduction.gif"
-     alt="Sample React Oicd"
-      />
-</p>
+## 3rdparty/react-oidc
 
 <p align="center">
   A set of react components and HOC to make Oidc (OpenID Connect) client easy. It aim to simplify OAuth authentication between multiples providers.
@@ -17,12 +12,12 @@
 - [Getting Started](#getting-started)
 - [How It Works](#how-it-works)
 - Packages
-  - [`@axa-fr/react-oidc-context`](./packages/context#readme.md) [![npm version](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-context.svg)](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-context)
-  - [`@axa-fr/react-oidc-context-fetch`](./packages/context-fetch#readme.md) [![npm version](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-context-fetch.svg)](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-context-fetch)
-  - [`@axa-fr/react-oidc-redux`](./packages/redux#readme.md) [![npm version](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-redux.svg)](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-redux)
-  - [`@axa-fr/react-oidc-redux-fetch`](./packages/redux-fetch#readme.md) [![npm version](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-redux-fetch.svg)](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-redux-fetch)
-  - [`@axa-fr/react-oidc-fetch-observable`](./packages/fetch-observable#readme.md) [![npm version](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-fetch-observable.svg)](https://badge.fury.io/js/%40axa-fr%2Freact-oidc-fetch-observable)
-  - [`@axa-fr/vanilla-oidc`](./packages/vanilla#readme.md) [![npm version](https://badge.fury.io/js/%40axa-fr%2Fvanilla-oidc.svg)](https://badge.fury.io/js/%40axa-fr%2Fvanilla-oidc)
+  - [`3rdparty/react-oidc-context`](./packages/context#readme.md)
+  - [`3rdparty/react-oidc-context-fetch`](./packages/context-fetch#readme.md)
+  - [`3rdparty/react-oidc-redux`](./packages/redux#readme.md) 
+  - [`3rdparty/react-oidc-redux-fetch`](./packages/redux-fetch#readme.md)
+  - [`3rdparty/react-oidc-fetch-observable`](./packages/fetch-observable#readme.md) 
+  - [`3rdparty/vanilla-oidc`](./packages/vanilla#readme.md)
 - [Concepts](#concepts)
 - [Contribute](#contribute)
 
@@ -38,12 +33,12 @@ Two version of the component with different "State management" are available :
 
 ## Getting Started
 
-- [`@axa-fr/react-oidc-context`](./packages/context#readme)
-- [`@axa-fr/react-oidc-context-fetch`](./packages/context-fetch#readme)
-- [`@axa-fr/react-oidc-redux`](./packages/redux#readme)
-- [`@axa-fr/react-oidc-redux-fetch`](./packages/redux-fetch#readme)
-- [`@axa-fr/react-oidc-fetch-observable`](./packages/fetch-observable#readme)
-- [`@axa-fr/vanilla-oidc`](./packages/vanilla#readme)
+- [`3rdparty/react-oidc-context`](./packages/context#readme)
+- [`3rdparty/react-oidc-context-fetch`](./packages/context-fetch#readme)
+- [`3rdparty/react-oidc-redux`](./packages/redux#readme)
+- [`3rdparty/react-oidc-redux-fetch`](./packages/redux-fetch#readme)
+- [`3rdparty/react-oidc-fetch-observable`](./packages/fetch-observable#readme)
+- [`3rdparty/vanilla-oidc`](./packages/vanilla#readme)
 
 ## Examples
 

@@ -22,7 +22,7 @@ function getCommand(watch) {
     args.push('-w');
   }
   const command = `${tsc} ${args.join(' ')}`;
-
+  console.log(command)
   return command;
 }
 

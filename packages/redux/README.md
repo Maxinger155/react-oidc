@@ -1,4 +1,4 @@
-# @axa-fr/react-oidc-redux
+# @3rdparty/react-oidc-redux
 
 ## About
 
@@ -7,14 +7,14 @@ Easy set up of OIDC for react and use "redux" as state management.
 ## Getting Started
 
 ```sh
-npm install @axa-fr/react-oidc-redux --save
+npm install @3rdparty/react-oidc-redux --save
 ```
 
 ### Application startup (index.js)
 
 The library is router agnostic and use native History API.
 
-The default routes used internally :
+The default routes used 3rdpartyly :
 
 - www.your-app.fr/authentication/callback
 - www.your-app.fr/authentication/silent_callback
@@ -31,7 +31,7 @@ import { configureStore } from './Store';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import { Oidc } from '@axa-fr/react-oidc-redux';
+import { Oidc } from '@3rdparty/react-oidc-redux';
 
 const store = configureStore();
 
@@ -76,7 +76,7 @@ const propTypes = {
   callbackComponentOverride: PropTypes.elementType, // react component displayed when user is connected
   sessionLostComponent: PropTypes.elementType, // react component displayed when user loose authentication session
   configuration: PropTypes.shape({
-    client_id: PropTypes.string.isRequired, // oidc client configuration, the same as oidc client library used internally https://github.com/IdentityModel/oidc-client-js
+    client_id: PropTypes.string.isRequired, // oidc client configuration, the same as oidc client library used 3rdpartyly https://github.com/IdentityModel/oidc-client-js
     redirect_uri: PropTypes.string.isRequired,
     response_type: PropTypes.string.isRequired,
     scope: PropTypes.string.isRequired,
@@ -142,7 +142,7 @@ import 'whatwg-fetch';
 
 ```javascript
 import { combineReducers } from 'redux';
-import { reducer as oidc } from '@axa-fr/react-oidc-redux';
+import { reducer as oidc } from '@3rdparty/react-oidc-redux';
 
 export default combineReducers({
   oidc,
@@ -175,7 +175,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import { OidcSecure, oidcSecure } from '@axa-fr/react-oidc-redux';
+import { OidcSecure, oidcSecure } from '@3rdparty/react-oidc-redux';
 import User from './User';
 
 const CustomAuthenticatingComponent = () => <div>Authenticating ...</div>;
@@ -219,7 +219,7 @@ export default App;
 
 ### Example
 
-You can also test a demo application by uploading it to [this link](https://download-directory.github.io/?url=https://github.com/AxaGuilDEv/react-oidc/tree/master/examples/redux) or cloning [the repository](https://github.com/AxaGuilDEv/react-oidc.git) (examples / redux directory).
+You can also test a demo application by uploading it to [this link](https://download-directory.github.io/?url=https://github.com/Maxinger155/react-oidc/tree/master/examples/redux) or cloning [the repository](https://github.com/Maxinger155/react-oidc.git) (examples / redux directory).
 Then you just need to run a
 
 ```shell

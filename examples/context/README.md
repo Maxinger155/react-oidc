@@ -1,3 +1,3 @@
 # Sample Application
 
-This is a @axa-fr/react-oidc-context sample application
+This is a @3rdparty/react-oidc-context sample application

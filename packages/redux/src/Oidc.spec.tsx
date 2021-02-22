@@ -1,7 +1,7 @@
 // Link.react.test.js
 import React from 'react';
 import { render } from '@testing-library/react';
-import { OidcBaseInternal } from './Oidc';
+import { OidcBase3rdparty } from './Oidc';
 
 jest.mock('redux-oidc', () => ({
   OidcProvider: jest.fn(() => <p>Render Something</p>),
@@ -16,7 +16,7 @@ describe('redux.Oidc', () => {
     jest.clearAllMocks();
   });
 
-  it('Render <OidcBaseInternal/> correctly', () => {
+  it('Render <OidcBase3rdparty/> correctly', () => {
     const configuration = {
       client_id: 'CSk26fuOE2NjQr17oCI1bKzBch9eUzF0',
       redirect_uri: 'http://localhost:3000/authentication/callback',
@@ -29,16 +29,16 @@ describe('redux.Oidc', () => {
       triggerAuthFlow: true,
     };
     const { asFragment } = render(
-      <OidcBaseInternal
+      <OidcBase3rdparty
         isEnabled={false}
         store={{ store: 'storeMock' }}
         configuration={configuration}
-        loadUserInternal={loadUserMock}
-        authenticationServiceInternal={authenticationServiceMock}
+        loadUser3rdparty={loadUserMock}
+        authenticationService3rdparty={authenticationServiceMock}
         UserStore={noopMock}
       >
         <p>isEnabled</p>
-      </OidcBaseInternal>
+      </OidcBase3rdparty>
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -46,7 +46,7 @@ describe('redux.Oidc', () => {
     expect(loadUserMock).not.toHaveBeenCalled();
   });
 
-  it('Render <OidcBaseInternal/> correctly when is enabled', () => {
+  it('Render <OidcBase3rdparty/> correctly when is enabled', () => {
     const configuration = {
       client_id: 'CSk26fuOE2NjQr17oCI1bKzBch9eUzF0',
       redirect_uri: 'http://localhost:3000/authentication/callback',
@@ -59,16 +59,16 @@ describe('redux.Oidc', () => {
       triggerAuthFlow: true,
     };
     const { asFragment } = render(
-      <OidcBaseInternal
+      <OidcBase3rdparty
         isEnabled
         store={{ store: 'storeMock' }}
         configuration={configuration}
-        loadUserInternal={loadUserMock}
-        authenticationServiceInternal={authenticationServiceMock}
+        loadUser3rdparty={loadUserMock}
+        authenticationService3rdparty={authenticationServiceMock}
         UserStore={noopMock}
       >
         <p>isEnabled</p>
-      </OidcBaseInternal>
+      </OidcBase3rdparty>
     );
     expect(asFragment()).toMatchSnapshot();
     expect(authenticationServiceMock).toHaveBeenCalledWith(

@@ -1,13 +1,16 @@
 {
-  "name": "@axa-fr/react-oidc-context-fetch",
-  "version": "3.1.6",
+  "name": "@3rdparty/react-oidc-context-fetch",
+  "version": "4.0.0",
   "private": false,
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "description": "Inject authentification behavior to fetch using react High Order Component",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AxaGuilDEv/react-oidc.git"
+    "url": "https://github.com/Maxinger155/react-oidc.git"
+  },
+  "scripts": {
+    "prepare": "node ../../scripts/prepare.js"
   },
   "keywords": [
     "oidc",
@@ -17,17 +20,16 @@
     "oauth2",
     "react-component"
   ],
-  "dependencies": {
-    "@axa-fr/react-oidc-context": "^3.1.6",
-    "@axa-fr/react-oidc-core": "^3.1.6",
-    "@axa-fr/react-oidc-fetch-core": "^3.1.6"
+  "peerDependencies": {
+    "recompose": "~0.30.0"
   },
-  "scripts": {
-    "prepare": "node ../../scripts/prepare.js"
+  "dependencies": {
+    "@3rdparty/react-oidc-context": "^4.0.0",
+    "@3rdparty/react-oidc-fetch-core": "^4.0.0"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://denexus.de-gmbh.com/repository/NpmUploaded/"
   }
 }

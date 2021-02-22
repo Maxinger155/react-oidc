@@ -1,30 +1,28 @@
 {
-  "name": "@axa-fr/react-oidc-core",
-  "version": "3.1.6",
+  "name": "@3rdparty/react-oidc-core",
+  "version": "4.0.0",
   "description": "A core package for Axa React Oidc packages",
-  "homepage": "https://github.com/AxaGuilDEv/react-oidc#readme",
+  "homepage": "https://github.com/Maxinger155/react-oidc#readme",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AxaGuilDEv/react-oidc.git"
+    "url": "git+https://github.com/Maxinger155/react-oidc.git"
   },
   "bugs": {
-    "url": "https://github.com/AxaGuilDEv/react-oidc/issues"
+    "url": "https://github.com/Maxinger155/react-oidc/issues"
   },
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
   "peerDependencies": {
     "oidc-client": ">=1.8.2",
+    "prop-types": ">=15.7.2",
     "react": ">=16.8.6"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://denexus.de-gmbh.com/repository/NpmUploaded/"
   }
 }

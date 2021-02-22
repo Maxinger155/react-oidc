@@ -1,11 +1,24 @@
+
+const width = 600;
+const height = 600;
+const path_port = window.location.protocol + "//" + window.location.hostname + (window.location.port !== "" ? ":" + window.location.port : "");
+const path = window.location.protocol + "//" + window.location.hostname;
+
 const configuration = {
-  client_id: 'interactive.public.short',
-  redirect_uri: 'http://localhost:3000/authentication/callback',
-  response_type: 'code',
-  post_logout_redirect_uri: 'http://localhost:3000/',
-  scope: 'openid profile email api offline_access',
-  authority: 'https://demo.identityserver.io',
-  silent_redirect_uri: 'http://localhost:3000/authentication/silent_callback',
+  popup_width: width,
+  popup_height: height,
+  client_id: "portal",
+  redirect_uri: path_port + "/authentication/callback",
+  popup_redirect_uri: path_port + "/authentication/callback",
+  popupWindowFeatures:
+    "location=no,toolbar=no,width=" + width + ",height=" + height + "",
+  response_type: "code",
+  post_logout_redirect_uri: path_port + "/",
+  scope: "profile email openid",
+  //authority: "https://support.de-gmbh.com:44390/auth/realms/sdn_portal/.well-known/openid-configuration",
+  authority:
+    "https://dev0010-204/auth/realms/sdn_portal/.well-known/openid-configuration",
+  silent_redirect_uri: path_port + "/authentication/silent_callback",
   automaticSilentRenew: true,
   loadUserInfo: true,
 };

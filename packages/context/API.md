@@ -1,4 +1,4 @@
-# @axa-fr/react-oidc-context API Documentation
+# @3rdparty/react-oidc-context API Documentation
 
 ## Provider
 
@@ -7,7 +7,7 @@ A simple Way to initiate the provider for the application. Usualy done in the in
 ```javascript
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthenticationProvider } from '@axa-fr/react-oidc-context';
+import { AuthenticationProvider } from '@3rdparty/react-oidc-context';
 
 const oidcConfiguration = {
   /// Oidc configuration
@@ -59,7 +59,7 @@ Usage :
 
 ```javascript
 import React from 'react';
-import { AuthenticationConsumer } from '@axa-fr/react-oidc-context';
+import { AuthenticationConsumer } from '@3rdparty/react-oidc-context';
 
 export const myComponent = ()=>{
 <AuthenticationConsumer>
@@ -86,7 +86,7 @@ Usage :
 
 ```javascript
 import React from 'react';
-import { OidcSecure } from '@axa-fr/react-oidc-context';
+import { OidcSecure } from '@3rdparty/react-oidc-context';
 
 export const Admin = props => (
   <OidcSecure>
@@ -105,7 +105,7 @@ Usage :
 ```javascript
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { withOidcSecure } from '@axa-fr/react-oidc-context';
+import { withOidcSecure } from '@3rdparty/react-oidc-context';
 import Home from 'Pages/Home';
 import Dashboard from 'Pages/Dashboard';
 
@@ -128,7 +128,7 @@ Usage :
 
 ```javascript
 import React from 'react';
-import { withOidcUser } from '@axa-fr/react-oidc-context';
+import { withOidcUser } from '@3rdparty/react-oidc-context';
 
 const Component = ({ oidcUser }) => (
   <span>Bonjour {oidcUser.profile.name}</span>

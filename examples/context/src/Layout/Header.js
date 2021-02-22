@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthenticationContext } from '@axa-fr/react-oidc-context';
+import { AuthenticationContext } from '@3rdparty/react-oidc-context';
 import { Link } from 'react-router-dom';
 
 const headerStyle = {
@@ -51,7 +51,7 @@ export default () => (
                 <button onClick={props.logout}>logout</button>
               </ul>
             ) : (
-              <button onClick={props.login}>login</button>
+              <button onClick={props.loginPopup}>login</button>
             )}
           </div>
         );

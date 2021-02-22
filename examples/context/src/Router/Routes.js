@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { withOidcSecure, OidcSecure } from '@axa-fr/react-oidc-context';
+import { withOidcSecure, OidcSecure } from '@3rdparty/react-oidc-context';
 import Home from '../Pages/Home';
 import Dashboard from '../Pages/Dashboard';
 import Admin from '../Pages/Admin';

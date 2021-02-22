@@ -1,4 +1,4 @@
-# @axa-fr/vanilla-oidc
+# @3rdparty/vanilla-oidc
 
 ## About
 
@@ -9,11 +9,11 @@ The library is built in vanilla js in order to be used with old javascript libra
 ### Getting Started es6
 
 ```sh
-npm install @axa-fr/vanilla-oidc --save
+npm install @3rdparty/vanilla-oidc --save
 ```
 
 ```javascript
-import vanillaOidc from "@axa-fr/vanilla-oidc";
+import vanillaOidc from "@3rdparty/vanilla-oidc";
 
 const configuration = {
   client_id: "implicit",

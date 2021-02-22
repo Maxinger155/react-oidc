@@ -1,17 +1,15 @@
-import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
+import { withOidcUser } from '@3rdparty/react-oidc-context';
 import { fetchToken } from '@3rdparty/react-oidc-fetch-core';
-
-const mapStateToProps = (state: any) => ({ user: state.oidc.user });
 
 type WindowFetch = typeof fetch;
 
 const enhance = (fetch: WindowFetch) =>
   compose(
-    connect(
-      mapStateToProps,
-      null
-    ),
+    withOidcUser,
+    withProps(({ oidcUser }) => ({
+      user: oidcUser,
+    })),
     withProps(fetchToken(fetch))
   );
 

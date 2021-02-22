@@ -115,15 +115,11 @@ describe('useOidcEvents tests suite', () => {
       addUserUnloaded: jest.fn(),
       addUserSignedOut: jest.fn(),
       addAccessTokenExpired: jest.fn(),
-      addAccessTokenExpiring: jest.fn(),
-      addUserSessionChanged: jest.fn(),
       removeUserLoaded: jest.fn(),
       removeSilentRenewError: jest.fn(),
       removeUserUnloaded: jest.fn(),
       removeUserSignedOut: jest.fn(),
       removeAccessTokenExpired: jest.fn(),
-      removeAccessTokenExpiring: jest.fn(),
-      removeUserSessionChanged: jest.fn(),
     },
     signinSilent: jest.fn(),
   };
@@ -135,102 +131,33 @@ describe('useOidcEvents tests suite', () => {
     unloadUser: () => {},
   };
 
-  const customEvents = {
-    onUserLoaded: jest.fn(),
-    onUserUnloaded: jest.fn(),
-    onSilentRenewError: jest.fn(),
-    onUserSignedOut: jest.fn(),
-    onUserSessionChanged: jest.fn(),
-    onAccessTokenExpiring: jest.fn(),
-    onAccessTokenExpired: jest.fn(),
-  };
-
   const callbackFunction = jest.fn();
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should add events (including custom) when call addOidcEvents', () => {
+  it('should add events when call addOidcEvents', () => {
     // @ts-ignore
-    const { result } = renderHook(() =>
-      useOidcEvents(oidcLog, userManager, oidcFunctions, customEvents)
-    );
+    const { result } = renderHook(() => useOidcEvents(oidcLog, userManager, oidcFunctions));
 
     act(() => result.current.addOidcEvents());
-
-    expect(userManager.events.addUserLoaded.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onUserLoaded],
-    ]);
-
-    expect(userManager.events.addSilentRenewError.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onSilentRenewError],
-    ]);
-
-    expect(userManager.events.addUserUnloaded.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onUserUnloaded],
-    ]);
-
-    expect(userManager.events.addUserSignedOut.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onUserSignedOut],
-    ]);
-
-    expect(userManager.events.addAccessTokenExpired.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onAccessTokenExpired],
-    ]);
-
-    expect(userManager.events.addUserSessionChanged.mock.calls).toEqual([
-      [customEvents.onUserSessionChanged],
-    ]);
-
-    expect(userManager.events.addAccessTokenExpiring.mock.calls).toEqual([
-      [customEvents.onAccessTokenExpiring],
-    ]);
+    expect(userManager.events.addUserLoaded).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.addSilentRenewError).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.addUserUnloaded).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.addUserSignedOut).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.addAccessTokenExpired).toBeCalledWith(expect.any(Function));
   });
 
-  it('should remove events (including custom) when call removeOidcEvents', () => {
+  it('should remove events when call removeOidcEvents', () => {
     // @ts-ignore
-    const { result } = renderHook(() =>
-      useOidcEvents(oidcLog, userManager, oidcFunctions, customEvents)
-    );
+    const { result } = renderHook(() => useOidcEvents(oidcLog, userManager, oidcFunctions));
 
     act(() => result.current.removeOidcEvents());
-    expect(userManager.events.removeUserLoaded.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onUserLoaded],
-    ]);
-
-    expect(userManager.events.removeSilentRenewError.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onSilentRenewError],
-    ]);
-
-    expect(userManager.events.removeUserUnloaded.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onUserUnloaded],
-    ]);
-
-    expect(userManager.events.removeUserSignedOut.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onUserSignedOut],
-    ]);
-
-    expect(userManager.events.removeAccessTokenExpired.mock.calls).toEqual([
-      [expect.any(Function)],
-      [customEvents.onAccessTokenExpired],
-    ]);
-
-    expect(userManager.events.removeUserSessionChanged.mock.calls).toEqual([
-      [customEvents.onUserSessionChanged],
-    ]);
-
-    expect(userManager.events.removeAccessTokenExpiring.mock.calls).toEqual([
-      [customEvents.onAccessTokenExpiring],
-    ]);
+    expect(userManager.events.removeUserLoaded).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.removeSilentRenewError).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.removeUserUnloaded).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.removeUserSignedOut).toBeCalledWith(expect.any(Function));
+    expect(userManager.events.removeAccessTokenExpired).toBeCalledWith(expect.any(Function));
   });
 
   it('should call logger when call', () => {

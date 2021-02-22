@@ -1,5 +1,5 @@
 import React from 'react';
-import { useReactOidc } from '@axa-fr/react-oidc-context';
+import { useReactOidc } from '@3rdparty/react-oidc-context';
 
 const Dashboard = () => {
   const { oidcUser, logout, events } = useReactOidc();

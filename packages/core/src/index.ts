@@ -1,11 +1,13 @@
-export { withRouter, ReactOidcHistory, OidcRoutes, useHistory } from './routes';
+export { withRouter, ReactOidcHistory, OidcRoutes } from './routes';
 export { Authenticating, Callback } from './default-component';
 export { configurationPropTypes, configurationDefaultProps } from './configurationPropTypes';
-export { compose } from './compose';
+
 export {
   getUserManager,
   authenticationService,
   authenticateUser,
+  authenticateUserSilent,
+  authenticateUserPopup,
   signinSilent,
   logoutUser,
   isRequireAuthentication,
@@ -13,5 +15,4 @@ export {
   oidcLog,
   InMemoryWebStorage,
   UserStoreType,
-  setUserManager,
 } from './services';

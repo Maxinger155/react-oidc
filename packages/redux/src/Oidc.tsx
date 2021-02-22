@@ -7,7 +7,7 @@ import {
   getUserManager,
   configurationPropTypes,
   UserStoreType,
-} from '@axa-fr/react-oidc-core';
+} from '@3rdparty/react-oidc-core';
 import AuthenticationCallback from './AuthenticationCallback';
 
 const propTypes = {
@@ -37,7 +37,7 @@ const withComponentOverrideProps = (Component: ComponentType, customProps: any) 
   <Component callbackComponentOverride={customProps} {...props} />
 );
 
-export const OidcBaseInternal = (props: any) => {
+export const OidcBase3rdparty = (props: any) => {
   const {
     isEnabled,
     children,
@@ -48,19 +48,19 @@ export const OidcBaseInternal = (props: any) => {
     notAuthorized,
     sessionLostComponent,
     UserStore,
-    loadUserInternal,
-    authenticationServiceInternal,
+    loadUser3rdparty,
+    authenticationService3rdparty,
   } = props;
 
   const [ready, setReady] = React.useState(false);
 
   React.useEffect(() => {
     if (isEnabled) {
-      const userManager = authenticationServiceInternal(configuration, UserStore);
-      loadUserInternal(store, userManager);
+      const userManager = authenticationService3rdparty(configuration, UserStore);
+      loadUser3rdparty(store, userManager);
       setReady(true);
     }
-  }, [UserStore, configuration, isEnabled, store, loadUserInternal, authenticationServiceInternal]);
+  }, [UserStore, configuration, isEnabled, store, loadUser3rdparty, authenticationService3rdparty]);
 
   return ready ? (
     <OidcProvider store={store} userManager={getUserManager()}>
@@ -82,10 +82,10 @@ export const OidcBaseInternal = (props: any) => {
   );
 };
 
-OidcBaseInternal.propTypes = {
+OidcBase3rdparty.propTypes = {
   ...propTypes,
-  loadUserInternal: PropTypes.func.isRequired,
-  authenticationServiceInternal: PropTypes.func.isRequired,
+  loadUser3rdparty: PropTypes.func.isRequired,
+  authenticationService3rdparty: PropTypes.func.isRequired,
 };
 
 type OidcBaseProps = PropsWithChildren<{
@@ -100,9 +100,9 @@ type OidcBaseProps = PropsWithChildren<{
 }>;
 
 const OidcBase: FC<OidcBaseProps> = props => (
-  <OidcBaseInternal
-    loadUserInternal={loadUser}
-    authenticationServiceInternal={authenticationService}
+  <OidcBase3rdparty
+    loadUser3rdparty={loadUser}
+    authenticationService3rdparty={authenticationService}
     {...props}
   />
 );

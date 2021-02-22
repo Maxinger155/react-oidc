@@ -1,9 +1,8 @@
 {
-  "version": "3.1.6",
   "command": {
     "publish": {
       "message": "chore(release): publish %s ***NO_CI***",
-      "npmClient": "npm",
+      "npmClient": "yarn",
       "ignoreChanges": [
         "ignored-file",
         "*.md",
@@ -18,5 +17,6 @@
   "packages": [
     "examples/**/*",
     "packages/*"
-  ]
+  ],
+  "version": "4.0.0"
 }

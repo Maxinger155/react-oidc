@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`redux.Oidc Render <OidcBaseInternal/> correctly 1`] = `
+exports[`redux.Oidc Render <OidcBase3rdparty/> correctly 1`] = `
 <DocumentFragment>
   <p>
     isEnabled
@@ -8,7 +8,7 @@ exports[`redux.Oidc Render <OidcBaseInternal/> correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`redux.Oidc Render <OidcBaseInternal/> correctly when is enabled 1`] = `
+exports[`redux.Oidc Render <OidcBase3rdparty/> correctly when is enabled 1`] = `
 <DocumentFragment>
   <p>
     Render Something

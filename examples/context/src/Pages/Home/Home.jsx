@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose, withProps } from 'recompose';
-import { withAuthentication } from '@axa-fr/react-oidc-context-fetch';
+import { withAuthentication } from '@3rdparty/react-oidc-context-fetch';
 
 const fetchMock = status => (url, options) => {
   return new Promise(resolve => {
