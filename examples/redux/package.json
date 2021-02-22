@@ -1,12 +1,12 @@
 {
   "name": "@3rdparty/react-oidc-redux-demo",
-  "version": "1.0.1",
+  "version": "4.0.0",
   "description": "Demo how to use react oidc redux",
   "private": true,
   "main": "src/index.js",
   "dependencies": {
-    "@3rdparty/react-oidc-redux": "^1.0.1",
-    "@3rdparty/react-oidc-redux-fetch": "^1.0.1",
+    "@3rdparty/react-oidc-redux": "^4.0.0",
+    "@3rdparty/react-oidc-redux-fetch": "^4.0.0",
     "oidc-client": "1.8.2",
     "react": "16.8.3",
     "react-app-rewired": "^2.1.3",
