@@ -1,6 +1,6 @@
 {
   "name": "@3rdparty/react-oidc-context-fetch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
@@ -24,8 +24,8 @@
     "recompose": "~0.30.0"
   },
   "dependencies": {
-    "@3rdparty/react-oidc-context": "^1.0.0",
-    "@3rdparty/react-oidc-fetch-core": "^1.0.0"
+    "@3rdparty/react-oidc-context": "^1.0.1",
+    "@3rdparty/react-oidc-fetch-core": "^1.0.1"
   },
   "license": "MIT",
   "publishConfig": {
